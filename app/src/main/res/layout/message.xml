@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/message">
+
+    <RelativeLayout
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="#ffcd2626"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+        <TextView
+            android:id="@+id/title_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="个人基本信息"
+            android:textColor="#ffffffff"
+            android:textSize="20sp"/>
+        <ImageView
+            android:id="@+id/title_back"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/base_action_bar_back_normal"/>
+        <ImageView
+            android:layout_width="1dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:layout_toRightOf="@+id/title_back"
+            android:background="#A71717"
+            android:gravity="center"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/message"
+        android:layout_below="@id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:gravity="center"
+            android:lines="1"
+            android:text="姓名：张三"
+            android:textColor="@android:color/black"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/sex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/name"
+            android:layout_marginLeft="20dp"
+            android:gravity="center"
+            android:lines="1"
+            android:text="性别：男"
+            android:textColor="@android:color/black"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/xuehao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/sex"
+            android:layout_marginLeft="20dp"
+            android:gravity="center"
+            android:lines="1"
+            android:text="学号：1701210666"
+            android:textColor="@android:color/black"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/xuehao"
+            android:layout_marginLeft="20dp"
+            android:gravity="center"
+            android:lines="1"
+            android:text="验证码：asdf"
+            android:textColor="@android:color/black"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/nianji"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/number"
+            android:layout_marginLeft="20dp"
+            android:gravity="center"
+            android:lines="1"
+            android:text="年级：2017"
+            android:textColor="@android:color/black"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/louhao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/nianji"
+            android:layout_marginLeft="20dp"
+            android:gravity="center"
+            android:lines="1"
+            android:text="已选宿舍楼号：5"
+            android:textColor="@android:color/black"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/sushehao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/louhao"
+            android:layout_marginLeft="20dp"
+            android:gravity="center"
+            android:lines="1"
+            android:text="宿舍号：5122"
+            android:textColor="@android:color/black"
+            android:textSize="20sp" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/attention"
+        android:layout_below="@id/message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/zhuyishixiang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="注意事项"
+            android:textSize="25sp"
+            android:textColor="@android:color/black"
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true" />
+        <TextView
+            android:id="@+id/statement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1.女生选宿舍时间：2018年9月20号下午2：00\n
+2.男生选宿舍时间：2018年9月20号下午3：00\n
+3.每个同学最多可以和三个人共同选宿舍\n
+4.本系统只适用于大兴校区选择宿舍"
+            android:textSize="18sp"
+            android:textColor="@android:color/black"
+            android:layout_below="@+id/zhuyishixiang"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp" />
+    </RelativeLayout>
+    <Button
+        android:id="@+id/start"
+        android:layout_below="@id/attention"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="40dp"
+        android:background="@android:color/holo_red_dark"
+        android:gravity="center"
+        android:text="办理住宿"
+        android:textSize="20sp"
+        android:textColor="#fff" />
+
+
+</RelativeLayout>
