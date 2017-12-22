@@ -20,11 +20,11 @@
     <LinearLayout
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
         android:layout_marginLeft="80dp"
+        android:layout_marginTop="60dp"
+        android:background="@android:color/white"
         android:orientation="horizontal"
-        android:padding="10sp"
-        android:background="@android:color/white">
+        android:padding="10sp">
 
         <TextView
             android:id="@+id/tv_loginAccount"
@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:text="账号："
             android:textColor="@android:color/black"
-            android:textSize="20sp"/>
+            android:textSize="20sp" />
 
         <EditText
             android:id="@+id/loginAccount_id"
@@ -45,7 +45,7 @@
             android:padding="5dp"
             android:paddingRight="40dp"
             android:textColor="#ff3b3b3b"
-            android:textSize="16sp"/>
+            android:textSize="16sp" />
     </LinearLayout>
 
     <!--密码框架-->
