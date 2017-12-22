@@ -14,6 +14,7 @@ import android.view.ViewStub;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -37,7 +38,7 @@ public class message extends Activity implements ViewStub.OnClickListener{
     private int errcode=1;
     private String data;
     private ImageView mBtn;
-    private ImageView nextBtu;
+    private Button startBtu;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -49,8 +50,8 @@ public class message extends Activity implements ViewStub.OnClickListener{
         mBtn=(ImageView) findViewById(R.id.title_back);
         mBtn.setOnClickListener(this);
 //        //开始办理按钮
-//        nextBtu=findViewById(R.id.start);
-//        nextBtu.setOnClickListener(this);
+        startBtu=(Button)findViewById(R.id.start);
+        startBtu.setOnClickListener(this);
     }
 
     private void initView(){
@@ -58,11 +59,11 @@ public class message extends Activity implements ViewStub.OnClickListener{
 
         //获取登陆人学号
         SharedPreferences sharedPreferences=getSharedPreferences("config",MODE_PRIVATE);
-        String usercode=sharedPreferences.getString("usercode","");
-        Log.d("学号","学号"+usercode);
+        String username = sharedPreferences.getString("username","");
+        Log.d("学号","学号"+username);
         Log.d("myapp","登陆标志"+sharedPreferences.getInt("logInFlag", 1));
 
-        final String ip1 ="https://api.mysspku.com/index.php/V1/MobileCourse/getDetail?stuid="+usercode;
+        final String ip1 ="https://api.mysspku.com/index.php/V1/MobileCourse/getDetail?stuid="+username;
 
         new Thread(
                 new Runnable() {
@@ -110,7 +111,7 @@ public class message extends Activity implements ViewStub.OnClickListener{
                     String responseStr=(String)msg.obj;
                     Log.d("myapp","查询结果"+responseStr);
                     try {
-                        //          创建JSON解析对象(两条规则的体现:大括号用JSONObject,注意传入数据对象)
+                        //创建JSON解析对象(两条规则的体现:大括号用JSONObject,注意传入数据对象)
                         JSONObject obj = new JSONObject(responseStr);
                         errcode = obj.getInt("errcode");
                         data = obj.getString("data");
@@ -124,6 +125,7 @@ public class message extends Activity implements ViewStub.OnClickListener{
                         xingBie=(TextView)findViewById(R.id.sex);
                         yanZhengma=(TextView)findViewById(R.id.number);
                         nianJi=(TextView)findViewById(R.id.nianji);
+                        xiaoQu=(TextView)findViewById(R.id.xiaoqu);
                         xuanLouhao=(TextView)findViewById(R.id.louhao);
                         xuanSushehao=(TextView)findViewById(R.id.sushehao);
 
@@ -134,6 +136,7 @@ public class message extends Activity implements ViewStub.OnClickListener{
                         xingBie.setText("性别："+obj1.getString("gender"));
                         yanZhengma.setText("验证码："+obj1.getString("vcode"));
                         nianJi.setText("年级："+obj1.getString("grade"));
+                        xiaoQu.setText("校区："+obj1.getString("location"));
                         int i = Integer.parseInt(obj1.getString("studentid"));
                         if(i%2==0){
                             xuanLouhao.setText("已选宿舍楼号："+obj1.getString("building"));
@@ -145,6 +148,7 @@ public class message extends Activity implements ViewStub.OnClickListener{
 
                         // 存储解析结果
                         SharedPreferences.Editor editor = getSharedPreferences("config",MODE_PRIVATE).edit();
+                        editor.putString("xueHao", obj1.getString("studentid"));
                         editor.putString("xingMing", obj1.getString("name"));
                         editor.putString("xingBie", obj1.getString("gender"));
                         editor.putString("yanZhengma", obj1.getString("vcode"));
@@ -165,7 +169,7 @@ public class message extends Activity implements ViewStub.OnClickListener{
             // 清除存储信息
             SharedPreferences.Editor editor = getSharedPreferences("config",MODE_PRIVATE).edit();
             editor.putInt("logInFlag", 1);
-            editor.putString("usercode", "");
+            editor.putString("username", "");
             editor.putString("password",  "");
             editor.putString("xingMing","");
             editor.putString("xingBie", "");
@@ -182,8 +186,14 @@ public class message extends Activity implements ViewStub.OnClickListener{
         }
         if(v.getId()==R.id.start){
             //跳转到页
-            Intent intent = new Intent(message.this,LoginActivity.class);
-            startActivity(intent);
+            SharedPreferences sharedPreferences = getSharedPreferences("config",MODE_PRIVATE);
+            int i = Integer.parseInt(sharedPreferences.getString("xueHao",""));
+            if (i%2==0){
+                Toast.makeText(message.this,"已选宿舍，无法继续办理!",Toast.LENGTH_LONG).show();
+            }else {
+                Intent intent = new Intent(message.this, louhao.class);
+                startActivity(intent);
+            }
         }
 
     }

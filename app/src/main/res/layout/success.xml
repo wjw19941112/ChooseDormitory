@@ -69,11 +69,12 @@
         android:layout_below="@+id/small"
         android:id="@+id/bt_go_home"
         style="?android:textAppearanceSmall"
-        android:layout_width="match_parent"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:text="返回首页"
         android:textStyle="bold"
         android:background="@android:color/holo_red_dark"
         android:textSize="20dp"
-        android:textColor="@android:color/white"/>
+        android:textColor="@android:color/white"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

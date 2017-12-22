@@ -99,5 +99,6 @@
         android:gravity="center"
         android:text="开始办理"
         android:textSize="20sp"
-        android:textColor="#fff" />
+        android:textColor="#fff"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

@@ -78,7 +78,7 @@ public class LoginActivity extends Activity implements View.OnClickListener{
             } else if (name != null && password != null) {
                 // 存储学号和密码
                 SharedPreferences.Editor editor = getSharedPreferences("config",MODE_PRIVATE).edit();
-                editor.putString("usercode", name);
+                editor.putString("username", name);
                 editor.putString("password", password);
                 editor.commit();
                 Log.d("username","password"+name+password);
