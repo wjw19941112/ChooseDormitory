@@ -20,6 +20,13 @@
         </activity>
         <activity android:name=".message"></activity>
         <activity android:name=".louhao"></activity>
+        <activity android:name=".kongchuangwei"></activity>
+        <activity android:name=".studentnumber"></activity>
+        <activity android:name=".sanren"></activity>
+        <activity android:name=".siren"></activity>
+        <activity android:name=".shuangren"></activity>
+        <activity android:name=".success"></activity>
+
 
     </application>
 

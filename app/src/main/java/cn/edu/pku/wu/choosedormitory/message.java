@@ -61,7 +61,7 @@ public class message extends Activity implements ViewStub.OnClickListener{
         SharedPreferences sharedPreferences=getSharedPreferences("config",MODE_PRIVATE);
         String username = sharedPreferences.getString("username","");
         Log.d("学号","学号"+username);
-        Log.d("myapp","登陆标志"+sharedPreferences.getInt("logInFlag", 1));
+        Log.d("mymessage","登陆标志"+sharedPreferences.getInt("logInFlag", 1));
 
         final String ip1 ="https://api.mysspku.com/index.php/V1/MobileCourse/getDetail?stuid="+username;
 

@@ -114,6 +114,7 @@ public class LoginActivity extends Activity implements View.OnClickListener{
                         editor.putInt("logInFlag", 0);
                         editor.commit();
                         //实现界面的跳转
+                        Toast.makeText(LoginActivity.this, "登陆成功", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(LoginActivity.this, message.class);
                         startActivity(intent);
                         //关闭当前界面
